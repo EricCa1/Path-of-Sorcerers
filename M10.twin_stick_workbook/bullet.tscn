@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://5gdnbd3boabt"]
+
+[ext_resource type="Script" path="res://bullet.gd" id="1_8ohye"]
+[ext_resource type="Texture2D" uid="uid://bgn8fvhkjniwn" path="res://weapons/bullets/fire.png" id="2_ww4ob"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r268l"]
+radius = 15.0
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_8ohye")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(280, 144)
+texture = ExtResource("2_ww4ob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(280, 144)
+shape = SubResource("CircleShape2D_r268l")
