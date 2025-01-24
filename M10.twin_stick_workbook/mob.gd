@@ -2,10 +2,14 @@ class_name Mob extends CharacterBody2D
 
 @export var max_speed := 250.0
 @export var accerleration := 700.0
+@export var max_health := 5 
+
+@export var health := 3: set = set_health
 
 var _player: Player = null
 
 @onready var _detection_area: Area2D = $DetectionArea
+
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -20,6 +24,14 @@ func _ready() -> void:
 			_player = null
 )
 
+func set_health(new_health: int) -> void:
+	health = new_health
+	if health <= 0: 
+		die()
+		
+func die() -> void:
+	queue_free()
+
 func _physics_process(delta: float) -> void:
 	if  _player == null:
 		velocity = velocity.move_toward(Vector2.ZERO, accerleration * delta)
@@ -31,11 +43,3 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(desired_velocity, accerleration * delta)
 
 	move_and_slide()
-
-
-func _on_detection_area_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_detection_area_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.

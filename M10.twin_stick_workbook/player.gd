@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 @export var speed := 460.0
 @export var drag_factor := 10.0
 
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const GODOT_BOTTOM_RIGHT = preload("res://player/godot_bottom_right.png")
