@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctmjg4lj0jdr1"]
+[gd_scene load_steps=6 format=3 uid="uid://ctmjg4lj0jdr1"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_k5hcs"]
 [ext_resource type="Texture2D" uid="uid://nohjoiah3jgr" path="res://mobs/sword_inactive.png" id="2_gxu66"]
@@ -7,6 +7,9 @@
 radius = 296.204
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_puxqb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nathw"]
+radius = 69.0
 
 [node name="Mob" type="CharacterBody2D"]
 motion_mode = 1
@@ -24,6 +27,12 @@ shape = SubResource("CircleShape2D_kwplo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_puxqb")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(36, -3)
+shape = SubResource("CircleShape2D_nathw")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

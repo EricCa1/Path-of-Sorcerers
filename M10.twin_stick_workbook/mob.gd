@@ -2,17 +2,16 @@ class_name Mob extends CharacterBody2D
 
 @export var max_speed := 250.0
 @export var accerleration := 700.0
-@export var max_health := 5 
+@export var max_health := 3
+@export var damage := 2.5
 
 @export var health := 3: set = set_health
 
 var _player: Player = null
 
 @onready var _detection_area: Area2D = $DetectionArea
+@onready var _hit_box: Area2D = $Hitbox
 
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
 	_detection_area.body_entered.connect(func (body: Node) -> void:
@@ -23,11 +22,17 @@ func _ready() -> void:
 		if body is Player:
 			_player = null
 )
-
+	_hit_box.body_entered.connect(func (body: Node) -> void:
+		if body is Player:
+			body.health -= damage
+)
+	
+	
 func set_health(new_health: int) -> void:
 	health = new_health
 	if health <= 0: 
 		die()
+		
 		
 func die() -> void:
 	queue_free()
