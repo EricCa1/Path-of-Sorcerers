@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxudehbp55q5v"]
+
+[ext_resource type="Script" path="res://area_2d.gd" id="1_b11j5"]
+[ext_resource type="Script" path="res://ItemHealing.gd" id="2_28m8v"]
+[ext_resource type="Texture2D" uid="uid://be8lmb157qflx" path="res://pickups/pickup_health.png" id="2_cxbje"]
+
+[sub_resource type="Resource" id="Resource_sywre"]
+script = ExtResource("2_28m8v")
+healing_amount = 1
+display_name = ""
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_66e1j"]
+radius = 26.0192
+
+[node name="Pickup" type="Area2D"]
+script = ExtResource("1_b11j5")
+item = SubResource("Resource_sywre")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_66e1j")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cxbje")

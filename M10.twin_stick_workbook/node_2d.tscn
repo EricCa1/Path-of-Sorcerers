@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1kguow7e8smy"]
+[gd_scene load_steps=5 format=3 uid="uid://c1kguow7e8smy"]
 
 [ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://levels/rooms/room_a.tscn" id="1_k4yer"]
 [ext_resource type="PackedScene" uid="uid://blwwx63im4rx6" path="res://player.tscn" id="2_cbcdw"]
 [ext_resource type="PackedScene" uid="uid://ctmjg4lj0jdr1" path="res://mob.tscn" id="3_54dcs"]
+[ext_resource type="PackedScene" uid="uid://cxudehbp55q5v" path="res://area_2d.tscn" id="4_53x4k"]
 
 [node name="Node_2d" type="Node2D"]
 
@@ -13,3 +14,6 @@ position = Vector2(746, 542)
 
 [node name="Mob" parent="." instance=ExtResource("3_54dcs")]
 position = Vector2(295, 231)
+
+[node name="Pickup" parent="." instance=ExtResource("4_53x4k")]
+position = Vector2(1003, 605)
