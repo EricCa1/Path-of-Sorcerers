@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dekkcmj408pvt" path="res://player/hand_fire.png" id="6_cxt6p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smlr0"]
-radius = 25.318
+radius = 28.0179
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gooa"]
 bg_color = Color(0.207151, 0.708167, 0.370438, 1)

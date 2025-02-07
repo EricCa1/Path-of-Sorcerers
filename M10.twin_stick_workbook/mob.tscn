@@ -7,9 +7,11 @@
 radius = 296.204
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_puxqb"]
+radius = 29.2746
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nathw"]
-radius = 69.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qmblv"]
+radius = 31.2114
+height = 135.739
 
 [node name="Mob" type="CharacterBody2D"]
 motion_mode = 1
@@ -22,7 +24,7 @@ texture = ExtResource("2_gxu66")
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(17, -1)
+position = Vector2(21, -1)
 shape = SubResource("CircleShape2D_kwplo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -32,7 +34,8 @@ shape = SubResource("CircleShape2D_puxqb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(36, -3)
-shape = SubResource("CircleShape2D_nathw")
+rotation = -1.61002
+shape = SubResource("CapsuleShape2D_qmblv")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

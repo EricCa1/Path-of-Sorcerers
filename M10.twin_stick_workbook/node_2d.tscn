@@ -1,14 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1kguow7e8smy"]
+[gd_scene load_steps=11 format=4 uid="uid://c1kguow7e8smy"]
 
 [ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://levels/rooms/room_a.tscn" id="1_k4yer"]
 [ext_resource type="PackedScene" uid="uid://blwwx63im4rx6" path="res://player.tscn" id="2_cbcdw"]
+[ext_resource type="PackedScene" uid="uid://wdey00p3syru" path="res://levels/background/background_blue_sky.tscn" id="2_v1n86"]
 [ext_resource type="PackedScene" uid="uid://ctmjg4lj0jdr1" path="res://mob.tscn" id="3_54dcs"]
 [ext_resource type="PackedScene" uid="uid://cxudehbp55q5v" path="res://Pickup.tscn" id="4_53x4k"]
 [ext_resource type="PackedScene" uid="uid://7yl0q3hwvafy" path="res://chest.tscn" id="5_horpl"]
+[ext_resource type="PackedScene" uid="uid://c3fl3stluv0gn" path="res://levels/bridges.tscn" id="7_us808"]
+[ext_resource type="PackedScene" uid="uid://dgayuh42w4v6u" path="res://levels/rooms/room_b.tscn" id="9_wpwd7"]
+[ext_resource type="PackedScene" uid="uid://cq0mmphkbrvmm" path="res://levels/rooms/room_c.tscn" id="10_ithcb"]
+[ext_resource type="PackedScene" uid="uid://dlxjrgals3rg2" path="res://levels/invisible_walls.tscn" id="10_uxvq7"]
 
 [node name="Node_2d" type="Node2D"]
 
 [node name="RoomA" parent="." instance=ExtResource("1_k4yer")]
+
+[node name="Pickup" parent="." instance=ExtResource("4_53x4k")]
+position = Vector2(1003, 605)
+
+[node name="Chest" parent="." instance=ExtResource("5_horpl")]
+visible = false
+position = Vector2(315, 945)
+
+[node name="Bridges" parent="." instance=ExtResource("7_us808")]
+tile_map_data = PackedByteArray("AAALAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAARAAQAAAACAAAAAAARAAUAAAABAAAAAAASAAUAAAABAAAAAAATAAUAAAABAAAAAAAUAAUAAAABAAAAAAAcAAAAAAABAAEAAAAcAP//AAABAAEAAAAcAP7/AAABAAEAAAAbAP7/AAABAAEAAAAaAP7/AAABAAEAAAAaAP3/AAABAAEAAAAaAPz/AAABAAEAAAAaAPv/AAABAAEAAAAaAPr/AAABAAEAAAAaAPn/AAABAAEAAAA=")
+
+[node name="RoomB" parent="." instance=ExtResource("9_wpwd7")]
+position = Vector2(2689, 124)
+
+[node name="RoomC" parent="." instance=ExtResource("10_ithcb")]
+position = Vector2(2176, -2264)
+
+[node name="BackgroundBlueSky" parent="." instance=ExtResource("2_v1n86")]
 
 [node name="Player" parent="." instance=ExtResource("2_cbcdw")]
 position = Vector2(746, 542)
@@ -16,8 +39,69 @@ position = Vector2(746, 542)
 [node name="Mob" parent="." instance=ExtResource("3_54dcs")]
 position = Vector2(295, 231)
 
-[node name="Pickup" parent="." instance=ExtResource("4_53x4k")]
-position = Vector2(1003, 605)
+[node name="InvisibleWalls" parent="." instance=ExtResource("10_uxvq7")]
+visible = false
+tile_map_data = PackedByteArray("AAAMAAMAAAAAAAAAAAANAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAALAAUAAAAAAAAAAAALAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAAQAAMAAAAAAAAAAAAPAAUAAAAAAAAAAAAQAAUAAAAAAAAAAAARAAMAAAAAAAAAAAASAAQAAAAAAAAAAAATAAQAAAAAAAAAAAARAAYAAAAAAAAAAAASAAYAAAAAAAAAAAATAAYAAAAAAAAAAAAZAPr/AAAAAAAAAAAZAPv/AAAAAAAAAAAZAPz/AAAAAAAAAAAZAP3/AAAAAAAAAAAZAP7/AAAAAAAAAAAaAP//AAAAAAAAAAAbAP//AAAAAAAAAAAdAP//AAAAAAAAAAAdAP7/AAAAAAAAAAAdAP3/AAAAAAAAAAAcAP3/AAAAAAAAAAAbAP3/AAAAAAAAAAAbAPz/AAAAAAAAAAAbAPv/AAAAAAAAAAAbAPr/AAAAAAAAAAAAAAQAAAAAAAAAAAA=")
 
-[node name="Chest" parent="." instance=ExtResource("5_horpl")]
-position = Vector2(315, 945)
+[node name="Mob2" parent="." instance=ExtResource("3_54dcs")]
+position = Vector2(3816, 880)
+
+[node name="Mob3" parent="." instance=ExtResource("3_54dcs")]
+position = Vector2(3632, 880)
+
+[node name="Mob4" parent="." instance=ExtResource("3_54dcs")]
+position = Vector2(3440, 888)
+
+[node name="Mob5" parent="." instance=ExtResource("3_54dcs")]
+position = Vector2(3272, 888)
+
+[node name="Mob6" parent="." instance=ExtResource("3_54dcs")]
+position = Vector2(3104, 896)
+
+[node name="Mob7" parent="." instance=ExtResource("3_54dcs")]
+position = Vector2(3984, 736)
+
+[node name="Mob8" parent="." instance=ExtResource("3_54dcs")]
+position = Vector2(3944, 480)
+
+[node name="Pickup2" parent="." instance=ExtResource("4_53x4k")]
+position = Vector2(2976, 568)
+
+[node name="Pickup3" parent="." instance=ExtResource("4_53x4k")]
+position = Vector2(3304, 520)
+
+[node name="Pickup4" parent="." instance=ExtResource("4_53x4k")]
+position = Vector2(3520, 480)
+
+[node name="Pickup5" parent="." instance=ExtResource("4_53x4k")]
+position = Vector2(3280, 648)
+
+[node name="Pickup6" parent="." instance=ExtResource("4_53x4k")]
+position = Vector2(4040, 584)
+
+[node name="Pickup7" parent="." instance=ExtResource("4_53x4k")]
+position = Vector2(3800, 808)
+
+[node name="Pickup8" parent="." instance=ExtResource("4_53x4k")]
+position = Vector2(3312, 848)
+
+[node name="Chest2" parent="." instance=ExtResource("5_horpl")]
+position = Vector2(2976, 280)
+
+[node name="Chest3" parent="." instance=ExtResource("5_horpl")]
+position = Vector2(3296, 280)
+
+[node name="Mob9" parent="." instance=ExtResource("3_54dcs")]
+position = Vector2(2760, -2040)
+
+[node name="Mob10" parent="." instance=ExtResource("3_54dcs")]
+position = Vector2(3224, -1616)
+
+[node name="Mob11" parent="." instance=ExtResource("3_54dcs")]
+position = Vector2(2680, -1168)
+
+[node name="Mob12" parent="." instance=ExtResource("3_54dcs")]
+position = Vector2(2664, -1632)
+
+[node name="Mob13" parent="." instance=ExtResource("3_54dcs")]
+position = Vector2(3360, -680)
