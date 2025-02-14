@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://c1kguow7e8smy"]
+[gd_scene load_steps=14 format=4 uid="uid://c1kguow7e8smy"]
 
 [ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://levels/rooms/room_a.tscn" id="1_k4yer"]
+[ext_resource type="Script" path="res://node_2d.gd" id="1_m2cjm"]
 [ext_resource type="PackedScene" uid="uid://blwwx63im4rx6" path="res://player.tscn" id="2_cbcdw"]
 [ext_resource type="PackedScene" uid="uid://wdey00p3syru" path="res://levels/background/background_blue_sky.tscn" id="2_v1n86"]
 [ext_resource type="PackedScene" uid="uid://ctmjg4lj0jdr1" path="res://mob.tscn" id="3_54dcs"]
@@ -10,16 +11,22 @@
 [ext_resource type="PackedScene" uid="uid://dgayuh42w4v6u" path="res://levels/rooms/room_b.tscn" id="9_wpwd7"]
 [ext_resource type="PackedScene" uid="uid://cq0mmphkbrvmm" path="res://levels/rooms/room_c.tscn" id="10_ithcb"]
 [ext_resource type="PackedScene" uid="uid://dlxjrgals3rg2" path="res://levels/invisible_walls.tscn" id="10_uxvq7"]
+[ext_resource type="PackedScene" uid="uid://dbkbaf2uodvrx" path="res://teleporter.tscn" id="13_d4lti"]
+[ext_resource type="PackedScene" uid="uid://3r00behyb1q3" path="res://end_screen.tscn" id="13_dhwif"]
 
 [node name="Node_2d" type="Node2D"]
+script = ExtResource("1_m2cjm")
 
 [node name="RoomA" parent="." instance=ExtResource("1_k4yer")]
+
+[node name="Player" parent="." instance=ExtResource("2_cbcdw")]
+top_level = true
+position = Vector2(746, 542)
 
 [node name="Pickup" parent="." instance=ExtResource("4_53x4k")]
 position = Vector2(1003, 605)
 
 [node name="Chest" parent="." instance=ExtResource("5_horpl")]
-visible = false
 position = Vector2(315, 945)
 
 [node name="Bridges" parent="." instance=ExtResource("7_us808")]
@@ -32,9 +39,6 @@ position = Vector2(2689, 124)
 position = Vector2(2176, -2264)
 
 [node name="BackgroundBlueSky" parent="." instance=ExtResource("2_v1n86")]
-
-[node name="Player" parent="." instance=ExtResource("2_cbcdw")]
-position = Vector2(746, 542)
 
 [node name="Mob" parent="." instance=ExtResource("3_54dcs")]
 position = Vector2(295, 231)
@@ -100,8 +104,17 @@ position = Vector2(3224, -1616)
 [node name="Mob11" parent="." instance=ExtResource("3_54dcs")]
 position = Vector2(2680, -1168)
 
-[node name="Mob12" parent="." instance=ExtResource("3_54dcs")]
-position = Vector2(2664, -1632)
-
 [node name="Mob13" parent="." instance=ExtResource("3_54dcs")]
 position = Vector2(3360, -680)
+
+[node name="Teleporter" parent="." instance=ExtResource("13_d4lti")]
+unique_name_in_owner = true
+position = Vector2(1221, 563)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EndScreen" parent="CanvasLayer" instance=ExtResource("13_dhwif")]
+visible = false
+top_level = true
+
+[connection signal="body_entered" from="Teleporter" to="." method="_on_teleporter_body_entered"]

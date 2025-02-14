@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbkbaf2uodvrx"]
+
+[ext_resource type="Texture2D" uid="uid://cwurq7yvv5xdu" path="res://teleporter/teleporter_base.png" id="1_cw2mm"]
+[ext_resource type="Texture2D" uid="uid://cb5e2w7i8756i" path="res://teleporter/teleporter_beam_green.png" id="2_tmgvw"]
+[ext_resource type="Texture2D" uid="uid://bvq8qshecx2by" path="res://teleporter/teleporter_particle_green.png" id="3_pv4aa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ttcm"]
+size = Vector2(137.5, 123)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lp2i8"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[node name="Teleporter" type="Area2D"]
+
+[node name="TeleporterBase" type="Sprite2D" parent="."]
+texture = ExtResource("1_cw2mm")
+
+[node name="TeleporterBeanGreen" type="Sprite2D" parent="."]
+texture = ExtResource("2_tmgvw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -4)
+shape = SubResource("RectangleShape2D_1ttcm")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_lp2i8")
+texture = ExtResource("3_pv4aa")
